@@ -109,9 +109,10 @@ const allowedOrigins = [
   "https://test-vuezen.bastionex.net",
   "https://admin-vuezen.bastionex.net",
   "https://test-admin-vuezen.bastionex.net",
-  "https://vuezen.io",
-  "https://www.vuezen.io",
-  "https://admin.vuezen.io",
+  "https://luxyaragroup.io",
+  "https://www.luxyaragroup.io",
+  "https://admin.luxyaragroup.io",
+  "https://be.luxyaragroup.io",
 ];
 
 // Use the cors middleware with specific options
