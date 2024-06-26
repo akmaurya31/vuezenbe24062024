@@ -417,6 +417,7 @@ export async function sendOtpForlogin(req, res, obj) {
     res.status(200).json({
       success: true,
       statusCode: 200,
+      obj: obj,
       message: "Otp sent to registered email",
     });
     try {
