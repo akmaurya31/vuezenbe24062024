@@ -1,6 +1,16 @@
 import axios from "axios";
 import fs from "fs";
 import https from "https";
+import AWS from 'aws-sdk';
+// import fs from 'fs';
+import path from 'path';
+
+AWS.config.update({
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+  region: process.env.AWS_REGION
+});
+
 
 function checkFileSignature(buffer) {
   const fileSignatures = {
@@ -185,7 +195,50 @@ export async function deleteCdnFile(filename, type) {
   }
 }
 
+AWS.config.update({
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+  region: process.env.AWS_REGION
+});
+
+const s3 = new AWS.S3();
+
 export async function cdnFuncCall(filename, filePath, type) {
+  try {
+    console.log(filePath, "filePath !@#", type, "######");
+
+    const fileData = fs.readFileSync(filePath);
+
+    let s3Path = `vuezen/uploads/${filename}`;
+    if (type == "category") {
+      s3Path = `vuezen/uploads/filterProduct/category/${filename}`;
+    } else if (type == "gender") {
+      s3Path = `vuezen/uploads/filterProduct/gender/${filename}`;
+    } else if (type == "shape") {
+      s3Path = `vuezen/uploads/filterProduct/shape/${filename}`;
+    } else if (type == 'ui') {
+      s3Path = `vuezen/uploads/ui/${filename}`;
+    } else if (type == 'bestSeller') {
+      s3Path = `vuezen/uploads/bestSeller/${filename}`;
+    } else if (type == 'footer') {
+      s3Path = `vuezen/uploads/footer/${filename}`;
+    }
+
+    const params = {
+      Bucket: process.env.S3_BUCKET_NAME, // Your bucket name
+      Key: s3Path,
+      Body: fileData,
+      ContentType: 'application/octet-stream'
+    };
+
+    const data = await s3.upload(params).promise();
+    console.log(`Image uploaded successfully: ${data.Location}`);
+  } catch (error) {
+    console.error("Error uploading image:", error);
+  }
+}
+
+export async function cdnFuncCall2(filename, filePath, type) {
   try {
     // const filePath = `./src/uploads/${filename}`;
     console.log(filePath, "filePath !@#",type,"######");
