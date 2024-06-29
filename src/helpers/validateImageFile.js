@@ -158,7 +158,7 @@ export async function removefIle(name, data) {
 //   }
 // }
 let j;
-async function deleteCdnFile(filename, type) {
+export async function deleteCdnFile(filename, type) {
   try {
       let key;
       if (type === "categories" || type === "category" || type === "gender" || type === "shape") {
