@@ -4,6 +4,7 @@ import https from "https";
 import AWS from 'aws-sdk';
 // import fs from 'fs';
 import path from 'path';
+import mime from 'mime-types';
 
 AWS.config.update({
   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
@@ -224,11 +225,12 @@ export async function cdnFuncCall(filename, filePath, type) {
       s3Path = `vuezen/uploads/footer/${filename}`;
     }
 
+    const contentType = mime.lookup(filePath) || 'application/octet-stream';
     const params = {
       Bucket: process.env.S3_BUCKET_NAME, // Your bucket name
       Key: s3Path,
       Body: fileData,
-      ContentType: 'application/octet-stream'
+      ContentType: contentType
     };
 
     const data = await s3.upload(params).promise();
