@@ -1,9 +1,8 @@
 {
-  "name": "vuezen_backend",
+  "name": "luxyara_backend",
   "version": "1.0.0",
   "type": "module",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server.js",
@@ -13,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "aws-sdk": "^2.1651.0",
     "axios": "^1.6.5",
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
