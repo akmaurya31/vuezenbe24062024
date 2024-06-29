@@ -158,7 +158,34 @@ export async function removefIle(name, data) {
 //   }
 // }
 let j;
-export async function deleteCdnFile(filename, type) {
+async function deleteCdnFile(filename, type) {
+  try {
+      let key;
+      if (type === "categories" || type === "category" || type === "gender" || type === "shape") {
+          key = `vuezen/uploads/filterProduct/${type}/${filename}`;
+      } else if (type === 'ui') {
+          key = `vuezen/uploads/ui/${filename}`;
+      } else if (type === 'bestSeller') {
+          key = `vuezen/uploads/bestSeller/${filename}`;
+      } else if (type === 'footer') {
+          key = `vuezen/uploads/footer/${filename}`;
+      } else {
+          throw new Error('Invalid type specified');
+      }
+
+      const params = {
+          Bucket: process.env.S3_BUCKET_NAME,
+          Key: key
+      };
+
+      await s3.deleteObject(params).promise();
+      console.log(`Deleted ${filename} from S3 bucket.`);
+  } catch (err) {
+      console.error(`Error deleting ${filename} from S3:`, err);
+  }
+}
+
+export async function deleteCdnFile2(filename, type) {
   try {
     let path = `https://storage.bunnycdn.com/vuezen/uploads/${filename}`;
     if (type == "categories") {
@@ -210,19 +237,19 @@ export async function cdnFuncCall(filename, filePath, type) {
 
     const fileData = fs.readFileSync(filePath);
 
-    let s3Path = `vuezen/uploads/${filename}`;
+    let s3Path = `luxyara/uploads/${filename}`;
     if (type == "category") {
-      s3Path = `vuezen/uploads/filterProduct/category/${filename}`;
+      s3Path = `luxyara/uploads/filterProduct/category/${filename}`;
     } else if (type == "gender") {
-      s3Path = `vuezen/uploads/filterProduct/gender/${filename}`;
+      s3Path = `luxyara/uploads/filterProduct/gender/${filename}`;
     } else if (type == "shape") {
-      s3Path = `vuezen/uploads/filterProduct/shape/${filename}`;
+      s3Path = `luxyara/uploads/filterProduct/shape/${filename}`;
     } else if (type == 'ui') {
-      s3Path = `vuezen/uploads/ui/${filename}`;
+      s3Path = `luxyara/uploads/ui/${filename}`;
     } else if (type == 'bestSeller') {
-      s3Path = `vuezen/uploads/bestSeller/${filename}`;
+      s3Path = `luxyara/uploads/bestSeller/${filename}`;
     } else if (type == 'footer') {
-      s3Path = `vuezen/uploads/footer/${filename}`;
+      s3Path = `luxyara/uploads/footer/${filename}`;
     }
 
     const contentType = mime.lookup(filePath) || 'application/octet-stream';

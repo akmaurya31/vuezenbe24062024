@@ -102,13 +102,6 @@ cron.schedule("*/30 * * * *", () => {
 
 // Define the allowed origins
 const allowedOrigins = [
-  "http://localhost:3000",
-  "http://localhost:3001",
-  "http://localhost:3002",
-  "https://vuezen.bastionex.net",
-  "https://test-vuezen.bastionex.net",
-  "https://admin-vuezen.bastionex.net",
-  "https://test-admin-vuezen.bastionex.net",
   "https://luxyaragroup.io",
   "https://www.luxyaragroup.io",
   "https://admin.luxyaragroup.io",
@@ -130,7 +123,7 @@ app.use(
   })
 );
 app.get("/", async (req, res) => {
-  return res.status(200).send("Welcom to Vuezen");
+  return res.status(200).send("Welcom to Luxyara");
 });
 
 //routes here like this => app.use('/user',userRoutes);

@@ -133,7 +133,7 @@ Router.post("/order/create", async (req, res) => {
                   )
                 : parseFloat(Number(totalPriceProduct) + 200).toFixed(2),
             name: customerName,
-            company_name: "Vuezen",
+            company_name: "Luxyara",
             add: address,
             add2: "",
             add3: "",
@@ -146,7 +146,7 @@ Router.post("/order/create", async (req, res) => {
             email: email,
             is_billing_same_as_shipping: "yes",
             billing_name: customerName,
-            billing_company_name: "Vuezen",
+            billing_company_name: "Luxyara",
             billing_add: address,
             billing_add2: "",
             billing_add3: "",
