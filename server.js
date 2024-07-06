@@ -75,7 +75,6 @@ const __dirname = path.dirname(new URL(import.meta.url).pathname);
 const app = express();
 //set up cors
 // app.use(cors("*"));
-app.use(cors());
 // Set up middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -108,6 +107,7 @@ const allowedOrigins = [
   "https://www.luxyaragroup.io",
   "https://admin.luxyaragroup.io",
   "https://be.luxyaragroup.io",
+  "https://localhost:3000",
 ];
 
 // Use the cors middleware with specific options

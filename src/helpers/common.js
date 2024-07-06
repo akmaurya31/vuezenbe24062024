@@ -33,63 +33,7 @@ const transporter2 = nodemailer.createTransport({
 //   },
 // });
 
-// export async function sendPasswordViaEmail(res, data) {
-//   try {
-//     // console.log(data, "AAAAAAAAAAAAAAAAAAAAAAAAAA");
-//     const mailOptions = {
-//       from: process.env.AUTH_EMAIL,
-//       to: data.email,
-//       subject: "Welcome to Vuezen.com",
-//       html: `
-//           <head>
-//           <style>
-//               .container {
-//                   width: 100%;
-//                   max-width: 600px;
-//                   margin: 0 auto;
-//               }
-//               .content {
-//                 padding: 20px;
-//             }
-//               .header {
-//                   background-color: #4CAF50;
-//                   color: #ffffff;
-//                   text-align: center;
-//                   padding: 20px 0;
-//               }
-//           </style>
-//       </head>
-//       <body>
-//           <div class="container">
-//               <div class="header">
-//                   <h1>Welcome to veuzen.com!</h1>
-//                   </div>
-
-//                   <div class="content">
-//                   <p>Dear ${data?.name},</p>
-//                   <p>We are thrilled to welcome you to the vuezen.com community!.</p>
-//                   <p>Here is your Account Login password : ${data?.userPassword} </p>
-
-//              </div>
-//           <div class="footer">
-//               <p>Regards, <br>The vuezen.com Team</p>
-//           </div>
-
-//           </div>
-//           </body>
-//           `,
-//     };
-//     res.status(201).json({
-//       success: true,
-//       statusCode:201,
-//       message: "User create successfully , check mail for password",
-//     });
-//     await transporter2.sendMail(mailOptions);
-//     return;
-//   } catch (err) {
-//     console.log(err, "Err");
-//   }
-// }
+ 
 export async function sendPasswordViaEmail(res, data) {
   try {
     console.log(process.env.BACEKND_URL, "AAAAAAAAAAAAAAAAAA");
@@ -97,14 +41,14 @@ export async function sendPasswordViaEmail(res, data) {
     const mailOptions = {
       from: process.env.AUTH_EMAIL,
       to: data.email,
-      subject: "Welcome to Vuezen! Let's See the World in Style!",
+      subject: "Welcome to Luxyaragroup! Let's See the World in Style!",
       html: `<!DOCTYPE html>
       <html lang="en">
       <head>
           <meta charset="UTF-8">
           <meta http-equiv="X-UA-Compatible" content="IE=edge">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Vuezen - Welcome Mail</title>
+          <title>Luxyaragroup - Welcome Mail</title>
           <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700&subset=latin-ext' rel='stylesheet' type='text/css'>
       </head>
       
@@ -119,7 +63,7 @@ export async function sendPasswordViaEmail(res, data) {
                   <td style="padding: 0px 40px; height: 260px; background-image:url('${base_url}/banner-back.png'); background-position: center top; background-size: cover; background-repeat: no-repeat;" >
                       <h1 style="text-align: left;color: #00C6FF;font-size: 36px;font-family: Lato; font-style: italic; font-weight: 700; padding: 0;margin: 0;">Hello ${data?.name},</h1>
                       <img src="${base_url}/under-lines.png" alt="underline">
-                      <p style="text-align: left;color: #E6E6E6;font-family: Lato;font-weight: 700;font-size: 20px;padding-top: 5px;margin: 0;">Welcome to Vuezen, where vision meets style most spectacularly!</p>
+                      <p style="text-align: left;color: #E6E6E6;font-family: Lato;font-weight: 700;font-size: 20px;padding-top: 5px;margin: 0;">Welcome to Luxyaragroup, where luxyara meets style most spectacularly!</p>
                   </td>
               </tr>
               <tr>
@@ -127,10 +71,10 @@ export async function sendPasswordViaEmail(res, data) {
                     <div style="display: inline-flex;">
                       <div style="margin-right:30px; text-align: center;"><img src="${base_url}/women-circle.png" alt=""> <p style="margin-top: 5px; font-size: 16px; font-weight: 700;">
                       
-                      <a href="${environmentVars?.live_url}" >Women</a> 
+                      <a href="${environmentVars?.live_url}" >Gun Holsters</a> 
                       </p></div>
                       <div style="text-align: center;"><img src="${base_url}/men-circle.png" alt=""> <p style="margin-top: 5px; font-size: 16px; font-weight: 700;">
-                      <a href="${environmentVars?.live_url}" >Men</a> 
+                      <a href="${environmentVars?.live_url}" >Auto Parts<</a> 
                       </p></div>
                     </div>
                   </td>
@@ -163,7 +107,7 @@ export async function sendPasswordViaEmail(res, data) {
                 font-size: 32px;
                 font-style: normal;
                 font-weight: 600;
-                margin: 25px 0 0;">Find Your <span style="color:#00C6FF">Match</span></h5>
+                margin: 25px 0 0;">Find Your <span style="color:#00C6FF">choice</span></h5>
                 </td>
               </tr>
       
@@ -211,7 +155,7 @@ export async function sendPasswordViaEmail(res, data) {
                       <img src="${base_url}/support-icon.png" alt="" style="text-align: center; width:40px; height:40px">
                       <div style="padding-left:10px;text-align: left;">
                           <h5 style="margin: 0; font-size: 18px; color: #000; font-weight: 400;">Contact us</h5>
-                          <h5 style="margin: 0; font-size: 18px;color: #009CFF; font-weight: 400;">support@vuezen.io</h5>
+                          <h5 style="margin: 0; font-size: 18px;color: #009CFF; font-weight: 400;">hi@Luxyaragroup.io</h5>
                       </div>
                     </div>
                   </td>
@@ -237,7 +181,7 @@ export async function sendPasswordViaEmail(res, data) {
 
 export async function forgotPasswordEmail(req, res, obj) {
   try {
-    let base_url = "https://vuezen.b-cdn.net/logo/";
+    let base_url = "https://Luxyaragroup.b-cdn.net/logo/";
     let base_url1 = `${process.env.BACEKND_URL}/uploads/images`;
     console.log(obj, "obj", `${base_url1}/logo.png`);
     const mailOptions = {
@@ -277,7 +221,7 @@ export async function forgotPasswordEmail(req, res, obj) {
                                     Hello ${obj?.name},</h1>
                                 <p
                                     style="text-align:center;color:#032140;font-family: 'Lato', sans-serif;font-weight:400;font-size:14px;padding-top:10px;margin:0">
-                                    You have requested to reset your password for Vuezen.io. 
+                                    You have requested to reset your password for Luxyaragroup.io. 
                                 </p>
                                 <p
                                     style="text-align:center;color:#032140;font-family: 'Lato', sans-serif;font-weight:400;font-size:14px;padding-top:10px;margin:0">
@@ -330,7 +274,7 @@ export async function forgotPasswordEmail(req, res, obj) {
                               <img src="${base_url}/support-icon.png" alt="" style="text-align: center; width:40px; height:40px">
                               <div style="padding-left:10px;text-align: left;">
                                   <h5 style="margin: 0; font-size: 18px; color: #000; font-weight: 400;">Contact us</h5>
-                                  <h5 style="margin: 0; font-size: 18px;color: #009CFF; font-weight: 400;">support@vuezen.io</h5>
+                                  <h5 style="margin: 0; font-size: 18px;color: #009CFF; font-weight: 400;">hi@Luxyaragroup.io</h5>
                               </div>
                             </div>
                           </td>
@@ -364,7 +308,7 @@ export async function sendOtpForlogin(req, res, obj) {
     const mailOptions = {
       from: process.env.AUTH_EMAIL,
       to: obj.email,
-      subject: "Login Otp - vuezen",
+      subject: "Login Otp - Luxyaragroup",
       html: `<!DOCTYPE html>
       <html lang="en">
       <head>
@@ -419,9 +363,9 @@ export async function sendOtpForlogin(req, res, obj) {
           <div class="container">
               <p>Dear ${obj?.name},</p>
               <p>Otp is ${obj?.otp_code}</p>
-              <p>Thank you for choosing vuezen. We appreciate your trust in our platform and are here to ensure you have a seamless experience.</p>
+              <p>Thank you for choosing Luxyaragroup. We appreciate your trust in our platform and are here to ensure you have a seamless experience.</p>
               <p>Sincerely,</p>
-              <p>Vuezen</p>
+              <p>Luxyaragroup</p>
           </div>
       </body>
       </html>
@@ -456,7 +400,7 @@ export function encryptStringWithKey(text) {
 
 export async function sendQueryMailToUser(res, data) {
   try {
-    let base_url = "https://vuezen.b-cdn.net/logo/";
+    let base_url = "https://Luxyaragroup.b-cdn.net/logo/";
     let base_url1 = `${process.env.BACEKND_URL}/uploads/images`;
     const mailOptions = {
       from: process.env.AUTH_EMAIL,
@@ -490,7 +434,7 @@ export async function sendQueryMailToUser(res, data) {
                                 </h1>
                                 <img src="${base_url}under-lines.png" alt="underline" class="CToWUd" data-bit="iit">
                                 <p style="text-align:center;color:#474747;font-family: 'Lato', sans-serif;font-weight:400;font-size:16px;padding-top:10px;margin:0">
-                                    Thanks for reaching out to Vuezen!
+                                    Thanks for reaching out to Luxyaragroup!
                                 </p>
                                 <p style="text-align:center;color:#474747;font-family: 'Lato', sans-serif;font-weight:400;font-size:16px;padding-top:10px;margin:0">
                                     We've received your query and our team is already working to get you the answers you need. Expect to hear from us real soon!
@@ -545,7 +489,7 @@ export async function sendQueryMailToUser(res, data) {
                                 <img src="${base_url}/support-icon.png" alt="" style="text-align: center; width:40px; height:40px">
                                 <div style="padding-left:10px;text-align: left;">
                                     <h5 style="margin: 0; font-size: 18px; color: #000; font-weight: 400;">Contact us</h5>
-                                    <h5 style="margin: 0; font-size: 18px;color: #009CFF; font-weight: 400;">support@vuezen.io</h5>
+                                    <h5 style="margin: 0; font-size: 18px;color: #009CFF; font-weight: 400;">hi@Luxyaragroup.io</h5>
                                 </div>
                               </div>
                             </td>
@@ -581,7 +525,7 @@ export async function orderPlaceViaEmail(data, userData) {
   try {
     console.log(data, "123123123123", userData);
     // userData.email = "prabhat@bastionex.net";
-    let base_url = "https://vuezen.b-cdn.net/logo/";
+    let base_url = "https://Luxyaragroup.b-cdn.net/logo/";
     let base_url1 = `${process.env.BACEKND_URL}/uploads/images`;
     function formatDate(inputDateString) {
       // Create a new Date object from the input string
@@ -745,7 +689,7 @@ export async function orderPlaceViaEmail(data, userData) {
       from: process.env.AUTH_EMAIL,
       // from: process.env.AUTH_FROM,
       to: userData.email,
-      subject: "Order Confirmed: Vuezen is Clear as Day!",
+      subject: "Order Confirmed: Luxyaragroup is Clear as Day!",
       html: `
       <!DOCTYPE html>
       <html lang="en">
@@ -753,7 +697,7 @@ export async function orderPlaceViaEmail(data, userData) {
       <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Order Confirmed: Vuezen is Clear as Day!</title>
+          <title>Order Confirmed: Luxyaragroup is Clear as Day!</title>
       </head>
 
       <body>
@@ -764,7 +708,7 @@ export async function orderPlaceViaEmail(data, userData) {
                 <tr style="padding:8px 0;">
                     <td
                         style="text-align:center; background-color: #032140;padding:12px 0;color: #fff;font-family: 'Lato', sans-serif">
-                        Unveil your signature look with Vuezen
+                        Unveil your signature look with Luxyaragroup
                     </td>
                 </tr>
                 <tr style="text-align:center;background-color:#fff">
@@ -1004,7 +948,7 @@ export async function orderPlaceViaEmail(data, userData) {
                             <img src="${base_url}/support-icon.png" alt="" style="text-align: center; width:40px; height:40px">
                             <div style="padding-left:10px;text-align: left;">
                                 <h5 style="margin: 0; font-size: 18px; color: #000; font-weight: 400;">Contact us</h5>
-                                <h5 style="margin: 0; font-size: 18px;color: #009CFF; font-weight: 400;">support@vuezen.io</h5>
+                                <h5 style="margin: 0; font-size: 18px;color: #009CFF; font-weight: 400;">hi@Luxyaragroup.io</h5>
                             </div>
                           </div>
                         </td>
@@ -1048,7 +992,7 @@ export async function updateOrderPaymentViaEmail(data, userData) {
     console.log(data, "AAAAAAAAAAA23333333$$$$$$AA", userData);
     // return
     // userData.email="prabhat@bastionex.net"
-    let base_url = "https://vuezen.b-cdn.net/logo/";
+    let base_url = "https://Luxyaragroup.b-cdn.net/logo/";
     let base_url1 = `${process.env.BACEKND_URL}/uploads/images`;
     function formatDate(inputDateString) {
       // Create a new Date object from the input string
@@ -1098,7 +1042,7 @@ export async function updateOrderPaymentViaEmail(data, userData) {
     const mailOptions = {
       from: process.env.AUTH_EMAIL,
       to: userData.email,
-      subject: "Vuezen - Order confirmation",
+      subject: "Luxyaragroup - Order confirmation",
       // html: `
       //   <!DOCTYPE html>
       //   <html lang="en">
@@ -1153,7 +1097,7 @@ export async function updateOrderPaymentViaEmail(data, userData) {
       //         <h2>Your Order Payment status : ${data?.payment_status} </h2>
       //       </div>
       //       <div class="footer">
-      //         <p>Regards, <br>The Vuezen.com Team</p>
+      //         <p>Regards, <br>The Luxyaragroup.com Team</p>
       //       </div>
       //     </div>
       //   </body>
@@ -1166,7 +1110,7 @@ export async function updateOrderPaymentViaEmail(data, userData) {
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Vuezen - Order confirmation</title>
+            <title>Luxyaragroup - Order confirmation</title>
         </head>
 
         <body>
@@ -1177,7 +1121,7 @@ export async function updateOrderPaymentViaEmail(data, userData) {
                   <tr style="padding:8px 0;">
                       <td
                           style="text-align:center; background-color: #032140;padding:12px 0;color: #fff;font-family: 'Lato', sans-serif">
-                          Unveil your signature look with Vuezen
+                          Unveil your signature look with Luxyaragroup
                       </td>
                   </tr>
                   <tr style="text-align:center;background-color:#fff">
@@ -1196,7 +1140,7 @@ export async function updateOrderPaymentViaEmail(data, userData) {
                                   <span> <img src="${base_url}green-tick.png"></span> Your Order is Confirmed!
                               </p>
                               <p style="text-align:center;color:#fff;font-size:16px;padding-bottom:25px;margin:0">
-                                  Thank you for your purchase. This email is to confirm your order with Vuezen. while we get your order ready please double check the details below and let us know if anything needs changing.
+                                  Thank you for your purchase. This email is to confirm your order with Luxyaragroup. while we get your order ready please double check the details below and let us know if anything needs changing.
                               </p>
                               <p style="text-align:center;color:#fff;font-size:16px;padding-bottom:25px;margin:0">We will keep you updated about the shipping details.</p>
                           </div>
@@ -1307,7 +1251,7 @@ export async function updateOrderPaymentViaEmail(data, userData) {
                               <img src="${base_url}/support-icon.png" alt="" style="text-align: center; width:40px; height:40px">
                               <div style="padding-left:10px;text-align: left;">
                                   <h5 style="margin: 0; font-size: 18px; color: #000; font-weight: 400;">Customer Service Department</h5>
-                                  <h5 style="margin: 0; font-size: 18px;color: #009CFF; font-weight: 400;">support@vuezen.io</h5>
+                                  <h5 style="margin: 0; font-size: 18px;color: #009CFF; font-weight: 400;">hi@Luxyaragroup.io</h5>
                               </div>
                             </div>
                           </td>
@@ -1318,7 +1262,7 @@ export async function updateOrderPaymentViaEmail(data, userData) {
                               <img src="${base_url}/support-icon.png" alt="" style="text-align: center; width:40px; height:40px">
                               <div style="padding-left:10px;text-align: left;">
                                   <h5 style="margin: 0; font-size: 18px; color: #000; font-weight: 400;">Complaints & Suggestions</h5>
-                                  <h5 style="margin: 0; font-size: 18px;color: #009CFF; font-weight: 400;">Complaints@vuezen.com</h5>
+                                  <h5 style="margin: 0; font-size: 18px;color: #009CFF; font-weight: 400;">Complaints@Luxyaragroup.com</h5>
                               </div>
                             </div>
                           </td>
@@ -1370,7 +1314,7 @@ export async function cancelOrder(userdata, orderData, fetchAddress) {
     // userdata.email="prabhat@bastionex.net"
     // return
 
-    let base_url = "https://vuezen.b-cdn.net/logo/";
+    let base_url = "https://Luxyaragroup.b-cdn.net/logo/";
     let base_url1 = `${process.env.BACEKND_URL}/uploads/images`;
     function formatDate(inputDateString) {
       // Create a new Date object from the input string
@@ -1442,7 +1386,7 @@ export async function cancelOrder(userdata, orderData, fetchAddress) {
                       <tr style="padding:8px 0;">
                           <td
                               style="text-align:center; background-color: #032140;padding:12px 0;color: #fff;font-family: 'Lato', sans-serif">
-                              Unveil your signature look with Vuezen
+                              Unveil your signature look with Luxyaragroup
                           </td>
                       </tr>
                       <tr style="text-align:center;background-color:#fff">
@@ -1565,7 +1509,7 @@ export async function cancelOrder(userdata, orderData, fetchAddress) {
                             <img src="${base_url}/support-icon.png" alt="" style="text-align: center; width:40px; height:40px">
                             <div style="padding-left:10px;text-align: left;">
                                 <h5 style="margin: 0; font-size: 18px; color: #000; font-weight: 400;">Contact us</h5>
-                                <h5 style="margin: 0; font-size: 18px;color: #009CFF; font-weight: 400;">support@vuezen.io</h5>
+                                <h5 style="margin: 0; font-size: 18px;color: #009CFF; font-weight: 400;">hi@Luxyaragroup.io</h5>
                             </div>
                           </div>
                         </td>
@@ -1684,9 +1628,9 @@ export async function changeDeliveryDate(data) {
               )?.toDateString()}</li>
           </ul>
               <p>We apologize for any inconvenience this may have caused. If you have any questions or concerns, please contact our support team.</p>
-              <p>Thank you for choosing vuezen. We appreciate your understanding.</p>
+              <p>Thank you for choosing Luxyaragroup. We appreciate your understanding.</p>
               <p>Sincerely,</p>
-              <p>Vuezen</p>
+              <p>Luxyaragroup</p>
           </div>
       </body>
       </html>
@@ -1710,7 +1654,7 @@ export async function changeDeliveryDate(data) {
 export async function changeOrderStatus(data, findOrder, fetchAddress) {
   try {
     console.log(data, "userdata", "orderdata",findOrder);
-    let base_url = "https://vuezen.b-cdn.net/logo/";
+    let base_url = "https://Luxyaragroup.b-cdn.net/logo/";
     let base_url1 = `${process.env.BACEKND_URL}/uploads/images`;
 
     function formatDate(inputDateString) {
@@ -1895,7 +1839,7 @@ export async function changeOrderStatus(data, findOrder, fetchAddress) {
                 <tr style="padding:8px 0;">
                     <td
                         style="text-align:center; background-color: #032140;padding:12px 0;color: #fff;font-family: 'Lato', sans-serif">
-                        Unveil your signature look with Vuezen
+                        Unveil your signature look with Luxyaragroup
                     </td>
                 </tr>
                 <tr style="text-align:center;background-color:#fff">
@@ -2047,7 +1991,7 @@ export async function changeOrderStatus(data, findOrder, fetchAddress) {
                       <img src="${base_url}/support-icon.png" alt="" style="text-align: center; width:40px; height:40px">
                       <div style="padding-left:10px;text-align: left;">
                           <h5 style="margin: 0; font-size: 18px; color: #000; font-weight: 400;">Contact us</h5>
-                          <h5 style="margin: 0; font-size: 18px;color: #009CFF; font-weight: 400;">support@vuezen.io</h5>
+                          <h5 style="margin: 0; font-size: 18px;color: #009CFF; font-weight: 400;">hi@Luxyaragroup.io</h5>
                       </div>
                     </div>
                   </td>
@@ -2091,7 +2035,7 @@ export async function changeOrderStatus(data, findOrder, fetchAddress) {
                         <tr style="padding:8px 0;">
                             <td
                                 style="text-align:center; background-color: #032140;padding:12px 0;color: #fff;font-family: 'Lato', sans-serif">
-                                Unveil your signature look with Vuezen
+                                Unveil your signature look with Luxyaragroup
                             </td>
                         </tr>
                         <tr style="text-align:center;background-color:#fff">
@@ -2250,7 +2194,7 @@ export async function changeOrderStatus(data, findOrder, fetchAddress) {
                               <img src="${base_url}/support-icon.png" alt="" style="text-align: center; width:40px; height:40px">
                               <div style="padding-left:10px;text-align: left;">
                                   <h5 style="margin: 0; font-size: 18px; color: #000; font-weight: 400;">Contact us</h5>
-                                  <h5 style="margin: 0; font-size: 18px;color: #009CFF; font-weight: 400;">support@vuezen.io</h5>
+                                  <h5 style="margin: 0; font-size: 18px;color: #009CFF; font-weight: 400;">hi@Luxyaragroup.io</h5>
                               </div>
                             </div>
                           </td>
@@ -2278,14 +2222,14 @@ export async function changeOrderStatus(data, findOrder, fetchAddress) {
         // from: process.env.AUTH_EMAIL,
         from: environmentVars.authEmail,
         to: data?.emailData?.email,
-        subject: "Your Vuezen is here!",
+        subject: "Your Luxyaragroup is here!",
         // html: `<!DOCTYPE html>
         // <html lang="en">
         
         // <head>
         //     <meta charset="UTF-8">
         //     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        //     <title>Your Vuezen is here!</title>
+        //     <title>Your Luxyaragroup is here!</title>
         // </head>
         
         // <body>
@@ -2296,7 +2240,7 @@ export async function changeOrderStatus(data, findOrder, fetchAddress) {
         //                 <tr style="padding:8px 0;">
         //                     <td
         //                         style="text-align:center; background-color: #032140;padding:12px 0;color: #fff;font-family: 'Lato', sans-serif">
-        //                         Unveil your signature look with Vuezen
+        //                         Unveil your signature look with Luxyaragroup
         //                     </td>
         //                 </tr>
         //                 <tr style="text-align:center;background-color:#fff">
@@ -2536,7 +2480,7 @@ export async function changeOrderStatus(data, findOrder, fetchAddress) {
         //                       <img src="${base_url}/support-icon.png" alt="" style="text-align: center; width:40px; height:40px">
         //                       <div style="padding-left:10px;text-align: left;">
         //                           <h5 style="margin: 0; font-size: 18px; color: #000; font-weight: 400;">Contact us</h5>
-        //                           <h5 style="margin: 0; font-size: 18px;color: #009CFF; font-weight: 400;">support@vuezen.io</h5>
+        //                           <h5 style="margin: 0; font-size: 18px;color: #009CFF; font-weight: 400;">hi@Luxyaragroup.io</h5>
         //                       </div>
         //                     </div>
         //                   </td>
@@ -2563,7 +2507,7 @@ export async function changeOrderStatus(data, findOrder, fetchAddress) {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Your Vuezen is here!</title>
+        <title>Your Luxyaragroup is here!</title>
     </head>
 
     <body>
@@ -2574,7 +2518,7 @@ export async function changeOrderStatus(data, findOrder, fetchAddress) {
                 <tr style="padding:8px 0;">
                     <td
                         style="text-align:center; background-color: #032140;padding:12px 0;color: #fff;font-family: 'Lato', sans-serif">
-                        Unveil your signature look with Vuezen
+                        Unveil your signature look with Luxyaragroup
                     </td>
                 </tr>
                 <tr style="text-align:center;background-color:#fff">
@@ -2889,7 +2833,7 @@ export async function changeOrderStatus(data, findOrder, fetchAddress) {
                       <img src="${base_url}/support-icon.png" alt="" style="text-align: center; width:40px; height:40px">
                       <div style="padding-left:10px;text-align: left;">
                           <h5 style="margin: 0; font-size: 18px; color: #000; font-weight: 400;">Contact us</h5>
-                          <h5 style="margin: 0; font-size: 18px;color: #009CFF; font-weight: 400;">support@vuezen.io</h5>
+                          <h5 style="margin: 0; font-size: 18px;color: #009CFF; font-weight: 400;">hi@Luxyaragroup.io</h5>
                       </div>
                     </div>
                   </td>
@@ -2997,9 +2941,9 @@ export async function sendCouponViaEmail(data) {
               </div>
              
               <p>If you have any questions or concerns, please contact our support team.</p>
-              <p>Thank you for choosing vuezen. We appreciate your understanding.</p>
+              <p>Thank you for choosing Luxyaragroup. We appreciate your understanding.</p>
               <p>Sincerely,</p>
-              <p>Vuezen</p>
+              <p>Luxyaragroup</p>
           </div>
       </body>
       </html>
@@ -3029,7 +2973,7 @@ export async function subscribeMailForNewsletter(EmailData) {
     // data.emailData.email = "prabhat@bastionex.net";
     // console.log(data, "userdata", "orderdata");
     // return
-    let base_url = "https://vuezen.b-cdn.net/logo/";
+    let base_url = "https://Luxyaragroup.b-cdn.net/logo/";
     let base_url1 = `${process.env.BACEKND_URL}/uploads/images`;
     const mailOptions = {
       from: environmentVars.authEmail,
@@ -3041,7 +2985,7 @@ export async function subscribeMailForNewsletter(EmailData) {
       <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Vuezen - Welcome to Our Newsletter Community</title>
+          <title>Luxyaragroup - Welcome to Our Newsletter Community</title>
       </head>
       
       <body>
@@ -3055,7 +2999,7 @@ export async function subscribeMailForNewsletter(EmailData) {
                           <td style="text-align: center; padding:0px 20px;height: 200px;background: #f3f3f3;">
                           <img src="${base_url1}/logo.png" class="CToWUd" data-bit="iit" style="margin: 5px 0;">
                               <p style="text-align:center;color:#474747;font-family: 'Lato', sans-serif;font-weight:400;font-size:16px;padding-top:10px;margin:0">
-                                  Thank you for subscribing to the Vuezen 
+                                  Thank you for subscribing to the Luxyaragroup 
                               </p>
                               <p style="text-align:center;color:#474747;font-family: 'Lato', sans-serif;font-weight:400;font-size:16px;padding-top:10px;margin:0">
                               you're officially part of our stylish squad now! Get ready to receive exclusive updates, insider tips, and exciting offers straight to your inbox.
@@ -3127,7 +3071,7 @@ export async function subscribeMailForNewsletter(EmailData) {
                               <img src="${base_url1}/support-icon.png" alt="" style="text-align: center; width:40px; height:40px">
                               <div style="padding-left:10px;text-align: left;">
                                   <h5 style="margin: 0; font-size: 18px; color: #000; font-weight: 400;">Contact us</h5>
-                                  <h5 style="margin: 0; font-size: 18px;color: #009CFF; font-weight: 400;">support@vuezen.io</h5>
+                                  <h5 style="margin: 0; font-size: 18px;color: #009CFF; font-weight: 400;">hi@Luxyaragroup.io</h5>
                               </div>
                             </div>
                           </td>
@@ -3187,11 +3131,11 @@ export async function subscribeMailForNewsletter(EmailData) {
         <p>It seems that you've forgotten your password, but don't worry, we've got you covered!</p>
         <p>To reset your password, otp is ${obj?.otp_code}</p>
         <p>Please choose a strong and memorable password. That's it!</p>
-        <p>Thank you for choosing vuezen. We appreciate your trust in our platform and are here to ensure you have a seamless experience.</p>
+        <p>Thank you for choosing Luxyaragroup. We appreciate your trust in our platform and are here to ensure you have a seamless experience.</p>
     `}
 
     <p>Sincerely,</p>
-    <p>Vuezen</p>
+    <p>Luxyaragroup</p>
 </div>
 
  */
