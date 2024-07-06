@@ -2,15 +2,15 @@ import nodemailer from "nodemailer";
 import crypto from "crypto";
 import { environmentVars } from "../config/environmentVar.js";
 
-let transporter2xx = nodemailer.createTransport({
-  host: "mail.smtp2go.com",
-  port: 2525,
-  secure: false,
-  auth: {
-    user: process.env.SMTP2GO_USER,
-    pass: process.env.SMTP2GO_PASSWORD,
-  },
-});
+// let transporter2xx = nodemailer.createTransport({
+//   host: "mail.smtp2go.com",
+//   port: 2525,
+//   secure: false,
+//   auth: {
+//     user: process.env.SMTP2GO_USER,
+//     pass: process.env.SMTP2GO_PASSWORD,
+//   },
+// });
 
 const transporter2 = nodemailer.createTransport({
   host: 'smtpout.secureserver.net',
