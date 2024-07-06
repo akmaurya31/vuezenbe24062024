@@ -74,7 +74,7 @@ import FooterRoutes from "./src/routes/user/FooterRoutes.js";
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 const app = express();
 //set up cors
-// app.use(cors("*"));
+app.use(cors("*"));
 // Set up middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
