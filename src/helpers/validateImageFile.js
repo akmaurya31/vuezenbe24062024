@@ -11,7 +11,8 @@ AWS.config.update({
   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
   region: process.env.AWS_REGION
 });
-
+ 
+const s3 = new AWS.S3();
 
 function checkFileSignature(buffer) {
   const fileSignatures = {
@@ -127,48 +128,19 @@ export async function removefIle(name, data) {
   }
 }
 
-// export async function cdnFuncCall(filename, type) {
-//   try {
-//     let filePathOf = `./src/uploads/${filename}`;
-//     console.log(filePathOf, "filePathOffilePathOf");
-//     const fileData = fs.readFileSync(filePathOf);
-//     let path = `/vuezen/uploads/${filename}`;
-
-//     const options = {
-//       method: "PUT",
-//       host: "storage.bunnycdn.com",
-//       path: path,
-//       headers: {
-//         AccessKey: process.env.SECRET_BUNNY,
-//         "Content-Type": "application/octet-stream",
-//       },
-//     };
-//     const cdnReq = https.request(options, (cdnRes) => {
-//       cdnRes.on("data", (chunk) => {
-//         console.log(chunk.toString("utf8"));
-//       });
-//     });
-//     cdnReq.on("error", (error) => {
-//       console.error(error, "aaaaaaaaaaa");
-//     });
-//     cdnReq.write(fileData);
-//     cdnReq.end();
-//   } catch (err) {
-//     console.log(err, "error  in sendig image to bunny.net");
-//   }
-// }
+ 
 let j;
 export async function deleteCdnFile(filename, type) {
   try {
       let key;
       if (type === "categories" || type === "category" || type === "gender" || type === "shape") {
-          key = `vuezen/uploads/filterProduct/${type}/${filename}`;
+          key = `luxyara/uploads/filterProduct/${type}/${filename}`;
       } else if (type === 'ui') {
-          key = `vuezen/uploads/ui/${filename}`;
+          key = `luxyara/uploads/ui/${filename}`;
       } else if (type === 'bestSeller') {
-          key = `vuezen/uploads/bestSeller/${filename}`;
+          key = `luxyara/uploads/bestSeller/${filename}`;
       } else if (type === 'footer') {
-          key = `vuezen/uploads/footer/${filename}`;
+          key = `luxyara/uploads/footer/${filename}`;
       } else {
           throw new Error('Invalid type specified');
       }
@@ -185,51 +157,8 @@ export async function deleteCdnFile(filename, type) {
   }
 }
 
-export async function deleteCdnFile2(filename, type) {
-  try {
-    let path = `https://storage.bunnycdn.com/vuezen/uploads/${filename}`;
-    if (type == "categories") {
-      path = `https://storage.bunnycdn.com/vuezen/uploads/filterProduct/category/${filename}`;
-    } else if (type == "category") {
-      path = `https://storage.bunnycdn.com/vuezen/uploads/filterProduct/category/${filename}`;
-    } else if (type == "gender") {
-      path = `https://storage.bunnycdn.com/vuezen/uploads/filterProduct/gender/${filename}`;
-    } else if (type == "shape") {
-      path = `https://storage.bunnycdn.com/vuezen/uploads/filterProduct/shape/${filename}`;
-    }else if(type=='ui'){
-      path = `https://storage.bunnycdn.com/vuezen/uploads/ui/${filename}`;
-    }else if(type=='bestSeller'){
-      path = `https://storage.bunnycdn.com/vuezen/uploads/bestSeller/${filename}`;
-    }else if(type=='footer'){
-      path = `https://storage.bunnycdn.com/vuezen/uploads/footer/${filename}`;
-    }
-    const options = {
-      method: "DELETE",
-      url: path,
-      headers: {
-        AccessKey: process.env.SECRET_BUNNY,
-      },
-    };
-    axios
-      .request(options)
-      .then(function (response) {
-        console.log("Images deleted");
-      })
-      .catch(function (error) {
-        console.error(error?.message, " start error");
-      });
-  } catch (err) {
-    console.log(err, "erorroor");
-  }
-}
+ 
 
-AWS.config.update({
-  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-  region: process.env.AWS_REGION
-});
-
-const s3 = new AWS.S3();
 
 export async function cdnFuncCall(filename, filePath, type) {
   try {
@@ -266,58 +195,4 @@ export async function cdnFuncCall(filename, filePath, type) {
     console.error("Error uploading image:", error);
   }
 }
-
-export async function cdnFuncCall2(filename, filePath, type) {
-  try {
-    // const filePath = `./src/uploads/${filename}`;
-    console.log(filePath, "filePath !@#",type,"######");
-
-    const fileData = fs.readFileSync(filePath);
-    // ./src/uploads/filterProduct/category
-    let path = `/vuezen/uploads/${filename}`;
-    if (type == "category") {
-      path = `/vuezen/uploads/filterProduct/category/${filename}`;
-    } else if (type == "gender") {
-      path = `/vuezen/uploads/filterProduct/gender/${filename}`;
-    } else if (type == "shape") {
-      path = `/vuezen/uploads/filterProduct/shape/${filename}`;
-    }else if(type=='ui'){
-      path = `/vuezen/uploads/ui/${filename}`;
-    }else if(type=='bestSeller'){
-      path = `/vuezen/uploads/bestSeller/${filename}`;
-    }else if(type=='footer'){
-      path = `/vuezen/uploads/footer/${filename}`;
-    }
-    const url = `https://storage.bunnycdn.com${path}`;
-
-    const options = {
-      headers: {
-        AccessKey: process.env.SECRET_BUNNY,
-        "Content-Type": "application/octet-stream",
-      },
-    };
-    await axios.put(url, fileData, options);
-    console.log("Image uploaded successfully");
-  } catch (error) {
-    console.error("Error uploading image:", error);
-  }
-}
-
-// export async function deleteCdnFile(filename, type) {
-//   try {
-//     const path = `/vuezen/uploads/${filename}`;
-//     const url = `https://storage.bunnycdn.com${path}`;
-
-//     const options = {
-//       headers: {
-//         AccessKey: process.env.SECRET_BUNNY,
-//       },
-//     };
-
-//     await axios.delete(url, options);
-
-//     console.log('Image deleted successfully');
-//   } catch (error) {
-//     console.error('Error deleting image:', error);
-//   }
-// }
+ 

@@ -26,6 +26,6 @@ const dbConnection = new Sequelize(
     logging: false,
   }
 );
-console.log("Line29".environmentVars,dbConnection)
+// console.log("Line29".environmentVars,dbConnection)
 
 export default dbConnection;

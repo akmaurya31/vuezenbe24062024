@@ -2,7 +2,7 @@ import nodemailer from "nodemailer";
 import crypto from "crypto";
 import { environmentVars } from "../config/environmentVar.js";
 
-let transporter2 = nodemailer.createTransport({
+let transporter2xx = nodemailer.createTransport({
   host: "mail.smtp2go.com",
   port: 2525,
   secure: false,
@@ -11,6 +11,19 @@ let transporter2 = nodemailer.createTransport({
     pass: process.env.SMTP2GO_PASSWORD,
   },
 });
+
+const transporter2 = nodemailer.createTransport({
+  host: 'smtpout.secureserver.net',
+  port: 465, // or 587
+  secure: true, // true for 465, false for 587
+  auth: {
+      user: 'hi@luxyaragroup.io', // your GoDaddy email
+      pass: 'Bkma@1234'     // your GoDaddy email password
+  }
+});
+
+
+
 
 // let transporter2 = nodemailer.createTransport({
 //   service: "gmail",

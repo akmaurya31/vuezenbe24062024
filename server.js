@@ -102,6 +102,7 @@ cron.schedule("*/30 * * * *", () => {
 
 // Define the allowed origins
 const allowedOrigins = [
+  "http://localhost:3000",
   "https://luxyaragroup.io",
   "https://www.luxyaragroup.io",
   "https://admin.luxyaragroup.io",
