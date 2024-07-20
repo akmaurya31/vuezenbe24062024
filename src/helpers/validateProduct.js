@@ -1,7 +1,7 @@
 import Joi from "joi";
 
 export const addProductchema = Joi.object({
-  title: Joi.string().min(3).max(50).trim().required().label("Title"),
+  title: Joi.string().min(3).max(550).trim().required().label("Title"),
   sku: Joi.string().required().label("sku"),
   model_number: Joi.string().max(20).required().label("model_number"),
   frame_type_id: Joi.string()
@@ -128,7 +128,7 @@ export const addProductchema = Joi.object({
 // "full_rim", "half_rim", "rim_less"
 
 export const editProductchema = Joi.object({
-  title: Joi.string().min(3).max(50).trim().label("Title"),
+  title: Joi.string().min(3).max(550).trim().label("Title"),
   sku: Joi.string().trim().label("sku"),
   summary: Joi.string().min(10).max(5251).trim().label("Summary"),
   product_id: Joi.string()
