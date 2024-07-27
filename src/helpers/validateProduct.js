@@ -6,7 +6,6 @@ export const addProductchema = Joi.object({
   model_number: Joi.string().max(20).required().label("model_number"),
   frame_type_id: Joi.string()
     .max(10)
-    .required()
     .custom((value, helpers) => {
       if (value < 0) {
         return helpers.message("frame_type_id cannot be negative");
@@ -14,7 +13,7 @@ export const addProductchema = Joi.object({
       return value;
     })
     .label("frame_type"),
-  summary: Joi.string().min(10).max(5000).trim().required().label("Summary"),
+  summary: Joi.string().min(3).max(5000).trim().required().label("Summary"),
   description: Joi.string()
     .min(10)
     .max(9000)
@@ -40,7 +39,6 @@ export const addProductchema = Joi.object({
       }
       return value;
     })
-    .required()
     .label("shape"),
   material_id: Joi.string()
     .max(10)
@@ -51,7 +49,6 @@ export const addProductchema = Joi.object({
       }
       return value;
     })
-    .required()
     .label("material_id"),
   description: Joi.string()
     .min(10)
@@ -62,7 +59,6 @@ export const addProductchema = Joi.object({
   gender: Joi.array().items(Joi.string().trim()).required().label("Gender"),
   weight_group_id: Joi.string()
     .trim()
-    .required()
     .custom((value, helpers) => {
       if (value < 0) {
         return helpers.message("weight_group_id cannot be negative");
@@ -72,7 +68,6 @@ export const addProductchema = Joi.object({
     .label("weight_group_id"),
   size_id: Joi.string()
     .trim()
-    .required()
     .custom((value, helpers) => {
       if (value < 0) {
         return helpers.message("size_id cannot be negative");
@@ -190,7 +185,6 @@ export const addProductVariantchema = Joi.object({
     .required()
     .label("Product id"),
   color_id: Joi.string()
-    .required()
     .trim()
     .max(10)
     .custom((value, helpers) => {

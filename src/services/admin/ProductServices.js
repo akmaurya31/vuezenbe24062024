@@ -74,119 +74,129 @@ class ProductServices {
       // }
 
       let checkCategoryExit = {};
-      if (cat_id) {
-        checkCategoryExit = categoryArray.find((el) => el?.id == cat_id);
-        if (!checkCategoryExit) {
-          removefIle(req.files?.thumbnail_img[0]?.filename);
-          return res.status(400).json({
-            message: "Category not found",
-            success: false,
-            statusCode: 400,
-          });
-        } else if (checkCategoryExit && checkCategoryExit.status != "active") {
-          removefIle(req.files?.thumbnail_img[0]?.filename);
-          return res.status(400).json({
-            message: "Category not active",
-            success: false,
-            statusCode: 400,
-          });
-        }
-      }
-      if (material_id) {
-        let existcheck2 = materialArray.find((el) => el?.id == material_id);
-        if (!existcheck2) {
-          removefIle(req.files?.thumbnail_img[0]?.filename);
-          return res.status(400).json({
-            message: "Material not found",
-            success: false,
-            statusCode: 400,
-          });
-        } else if (existcheck2?.status == "inactive") {
-          removefIle(req.files?.thumbnail_img[0]?.filename);
-          return res.status(400).json({
-            message: "Material is not active",
-            success: false,
-            statusCode: 400,
-          });
-        }
-      }
-      if (shape_id) {
-        let checkShapeExit = shapeArray.find((el) => el.id == shape_id);
-        if (!checkShapeExit) {
-          removefIle(req.files?.thumbnail_img[0]?.filename);
-          return res.status(400).json({
-            message: "Shape not found",
-            success: false,
-            statusCode: 400,
-          });
-        } else if (checkShapeExit && checkShapeExit?.status != "active") {
-          removefIle(req.files?.thumbnail_img[0]?.filename);
-          return res.status(400).json({
-            message: "Shape is not active",
-            success: false,
-            statusCode: 400,
-          });
-        }
-      }
-      if (size_id) {
-        let checkSizeExit = sizeArray.find((el) => el.id == size_id);
-        if (!checkSizeExit) {
-          removefIle(req.files?.thumbnail_img[0]?.filename);
-          return res.status(400).json({
-            message: "Size not found",
-            success: false,
-            statusCode: 400,
-          });
-        } else if (checkSizeExit && checkSizeExit?.status != "active") {
-          removefIle(req.files?.thumbnail_img[0]?.filename);
-          return res.status(400).json({
-            message: "Size is not active",
-            success: false,
-            statusCode: 400,
-          });
-        }
-      }
-      if (weight_group_id) {
-        let checkWeightExit = weight_group_array.find(
-          (el) => el.id == weight_group_id
-        );
-        if (!checkWeightExit) {
-          removefIle(req.files?.thumbnail_img[0]?.filename);
-          return res.status(400).json({
-            message: "Weight not found",
-            success: false,
-            statusCode: 400,
-          });
-        } else if (checkWeightExit && checkWeightExit?.status != "active") {
-          removefIle(req.files?.thumbnail_img[0]?.filename);
-          return res.status(400).json({
-            message: "Weight is not active",
-            success: false,
-            statusCode: 400,
-          });
-        }
-      }
+      // if (cat_id) {
+      //   checkCategoryExit = categoryArray.find((el) => el?.id == cat_id);
+      //   if (!checkCategoryExit) {
+      //     removefIle(req.files?.thumbnail_img[0]?.filename);
+      //     return res.status(400).json({
+      //       message: "Category not found",
+      //       success: false,
+      //       statusCode: 400,
+      //     });
+      //   } else if (checkCategoryExit && checkCategoryExit.status != "active") {
+      //     removefIle(req.files?.thumbnail_img[0]?.filename);
+      //     return res.status(400).json({
+      //       message: "Category not active",
+      //       success: false,
+      //       statusCode: 400,
+      //     });
+      //   }
+      // }
+
+      // if (material_id) {
+      //   let existcheck2 = materialArray.find((el) => el?.id == material_id);
+      //   if (!existcheck2) {
+      //     removefIle(req.files?.thumbnail_img[0]?.filename);
+      //     return res.status(400).json({
+      //       message: "Material not found",
+      //       success: false,
+      //       statusCode: 400,
+      //     });
+      //   } else if (existcheck2?.status == "inactive") {
+      //     removefIle(req.files?.thumbnail_img[0]?.filename);
+      //     return res.status(400).json({
+      //       message: "Material is not active",
+      //       success: false,
+      //       statusCode: 400,
+      //     });
+      //   }
+      // }
+
+
+      // if (shape_id) {
+      //   let checkShapeExit = shapeArray.find((el) => el.id == shape_id);
+      //   if (!checkShapeExit) {
+      //     removefIle(req.files?.thumbnail_img[0]?.filename);
+      //     return res.status(400).json({
+      //       message: "Shape not found",
+      //       success: false,
+      //       statusCode: 400,
+      //     });
+      //   } else if (checkShapeExit && checkShapeExit?.status != "active") {
+      //     removefIle(req.files?.thumbnail_img[0]?.filename);
+      //     return res.status(400).json({
+      //       message: "Shape is not active",
+      //       success: false,
+      //       statusCode: 400,
+      //     });
+      //   }
+      // }
+
+
+      // if (size_id) {
+      //   let checkSizeExit = sizeArray.find((el) => el.id == size_id);
+      //   if (!checkSizeExit) {
+      //     removefIle(req.files?.thumbnail_img[0]?.filename);
+      //     return res.status(400).json({
+      //       message: "Size not found",
+      //       success: false,
+      //       statusCode: 400,
+      //     });
+      //   } else if (checkSizeExit && checkSizeExit?.status != "active") {
+      //     removefIle(req.files?.thumbnail_img[0]?.filename);
+      //     return res.status(400).json({
+      //       message: "Size is not active",
+      //       success: false,
+      //       statusCode: 400,
+      //     });
+      //   }
+      // }
+
+
+      // if (weight_group_id) {
+      //   let checkWeightExit = weight_group_array.find(
+      //     (el) => el.id == weight_group_id
+      //   );
+      //   if (!checkWeightExit) {
+      //     removefIle(req.files?.thumbnail_img[0]?.filename);
+      //     return res.status(400).json({
+      //       message: "Weight not found",
+      //       success: false,
+      //       statusCode: 400,
+      //     });
+      //   } else if (checkWeightExit && checkWeightExit?.status != "active") {
+      //     removefIle(req.files?.thumbnail_img[0]?.filename);
+      //     return res.status(400).json({
+      //       message: "Weight is not active",
+      //       success: false,
+      //       statusCode: 400,
+      //     });
+      //   }
+      // }
+
+
       // console.log(gender,"genderrrrrrrrrrrrrrrrrr")
-      if (gender && gender?.length) {
-        for (let ele of gender) {
-          let checkGenderExit = genderArray.find((el) => el.id == ele);
-          if (!checkGenderExit) {
-            removefIle(req.files?.thumbnail_img[0]?.filename);
-            return res.status(400).json({
-              message: "Gender not found ",
-              statusCode: 400,
-              success: false,
-            });
-          } else if (checkGenderExit && checkGenderExit?.status == "inactive") {
-            removefIle(req.files?.thumbnail_img[0]?.filename);
-            return res.status(400).json({
-              message: "Gender is not active",
-              statusCode: 400,
-              success: false,
-            });
-          }
-        }
-      }
+
+      // if (gender && gender?.length) {
+      //   for (let ele of gender) {
+      //     let checkGenderExit = genderArray.find((el) => el.id == ele);
+      //     if (!checkGenderExit) {
+      //       removefIle(req.files?.thumbnail_img[0]?.filename);
+      //       return res.status(400).json({
+      //         message: "Gender not found ",
+      //         statusCode: 400,
+      //         success: false,
+      //       });
+      //     } else if (checkGenderExit && checkGenderExit?.status == "inactive") {
+      //       removefIle(req.files?.thumbnail_img[0]?.filename);
+      //       return res.status(400).json({
+      //         message: "Gender is not active",
+      //         statusCode: 400,
+      //         success: false,
+      //       });
+      //     }
+      //   }
+      // }
 
       let existCheck = await ProductModel.findOne({
         where: {

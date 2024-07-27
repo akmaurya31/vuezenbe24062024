@@ -31,7 +31,7 @@ function checkFileSignature(buffer) {
   }
   return null;
 }
-const maxSize = 500 * 1024;
+const maxSize = 2500 * 1024;
 export async function ImageFileCheck(name, data, size) {
   try {
     let filePath = `./src/uploads/${name}`;
@@ -55,7 +55,7 @@ export async function ImageFileCheck(name, data, size) {
     // console.log(filetype,"filetypefiletype");
     if (filetype == "PNG" || filetype == "JPEG" || filetype == "WEBP"||filetype=='JPG') {
       // console.log(filetype,"  ####filetypefiletype@@@@@@@@@@2");
-      if (size > maxSize) {
+      // if (size > maxSize) {
         // console.log(size,maxSize,"sssssssssss")
         await fs.unlinkSync(filePath);
         return "invalid file";
