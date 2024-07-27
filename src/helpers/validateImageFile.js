@@ -55,7 +55,7 @@ export async function ImageFileCheck(name, data, size) {
     // console.log(filetype,"filetypefiletype");
     if (filetype == "PNG" || filetype == "JPEG" || filetype == "WEBP"||filetype=='JPG') {
       // console.log(filetype,"  ####filetypefiletype@@@@@@@@@@2");
-      // if (size > maxSize) {
+      if (size > maxSize) {
         // console.log(size,maxSize,"sssssssssss")
         await fs.unlinkSync(filePath);
         return "invalid file";
