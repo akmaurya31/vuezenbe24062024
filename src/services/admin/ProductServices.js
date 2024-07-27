@@ -54,22 +54,25 @@ class ProductServices {
       let sizeArray = get[0]?.size;
       let weight_group_array = get[0]?.weight_group;
       let frame_type_array = get[0]?.frame_type;
-      if (frame_type_id) {
-        let checkExit = frame_type_array.find((el) => el?.id == frame_type_id);
-        if (!checkExit) {
-          return res.status(400).json({
-            status: "Frame type is not exist",
-            statusCode: 400,
-            success: false,
-          });
-        } else if (checkExit && checkExit.status != "active") {
-          return res.status(400).json({
-            status: "Frame type is not active",
-            statusCode: 400,
-            success: false,
-          });
-        }
-      }
+
+      //by avinash
+      // if (frame_type_id) {
+      //   let checkExit = frame_type_array.find((el) => el?.id == frame_type_id);
+      //   if (!checkExit) {
+      //     return res.status(400).json({
+      //       status: "Frame type is not exist",
+      //       statusCode: 400,
+      //       success: false,
+      //     });
+      //   } else if (checkExit && checkExit.status != "active") {
+      //     return res.status(400).json({
+      //       status: "Frame type is not active",
+      //       statusCode: 400,
+      //       success: false,
+      //     });
+      //   }
+      // }
+
       let checkCategoryExit = {};
       if (cat_id) {
         checkCategoryExit = categoryArray.find((el) => el?.id == cat_id);
@@ -283,20 +286,21 @@ class ProductServices {
       if (frame_type_id && frame_type_id != "" && frame_type_id != null) {
         let checkExit = frame_type_array.find((el) => el?.id == frame_type_id);
 
+        //comment by avinash
         // console.log(checkExit,"chek existtttttttttt");
-        if (!checkExit) {
-          return res.status(400).json({
-            status: "Frame type is not exist",
-            statusCode: 400,
-            success: false,
-          });
-        } else if (checkExit && checkExit.status != "active") {
-          return res.status(400).json({
-            status: "Frame type is not active",
-            statusCode: 400,
-            success: false,
-          });
-        }
+        // if (!checkExit) {
+        //   return res.status(400).json({
+        //     status: "Frame type is not exist",
+        //     statusCode: 400,
+        //     success: false,
+        //   });
+        // } else if (checkExit && checkExit.status != "active") {
+        //   return res.status(400).json({
+        //     status: "Frame type is not active",
+        //     statusCode: 400,
+        //     success: false,
+        //   });
+        // }
       }
 
       if (gender && gender?.length) {
