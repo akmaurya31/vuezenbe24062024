@@ -303,80 +303,87 @@ class ProductServices {
         // }
       }
 
-      if (gender && gender?.length) {
-        for (let ele of gender) {
-          let checkGenderExit = genderArray.find((el) => el.id == ele);
-          if (!checkGenderExit) {
-            if (req.files && req.files?.thumbnail_img?.length) {
-              removefIle(req.files?.thumbnail_img[0]?.filename);
-            }
-            return res.status(400).json({
-              message: "Gender is not found",
-              statusCode: 400,
-              success: false,
-            });
-          } else if (checkGenderExit && checkGenderExit?.status == "inactive") {
-            if (req.files && req.files?.thumbnail_img?.length) {
-              removefIle(req.files?.thumbnail_img[0]?.filename);
-            }
-            return res.status(400).json({
-              message: "Gender is not active",
-              statusCode: 400,
-              success: false,
-            });
-          }
-        }
-      }
+      // if (gender && gender?.length) {
+      //   for (let ele of gender) {
+      //     let checkGenderExit = genderArray.find((el) => el.id == ele);
+      //     if (!checkGenderExit) {
+      //       if (req.files && req.files?.thumbnail_img?.length) {
+      //         removefIle(req.files?.thumbnail_img[0]?.filename);
+      //       }
+      //       return res.status(400).json({
+      //         message: "Gender is not found",
+      //         statusCode: 400,
+      //         success: false,
+      //       });
+      //     } else if (checkGenderExit && checkGenderExit?.status == "inactive") {
+      //       if (req.files && req.files?.thumbnail_img?.length) {
+      //         removefIle(req.files?.thumbnail_img[0]?.filename);
+      //       }
+      //       return res.status(400).json({
+      //         message: "Gender is not active",
+      //         statusCode: 400,
+      //         success: false,
+      //       });
+      //     }
+      //   }
+      // }
       // console.log(shapeArr, "shapeArrshapeArr");
-      if (shape_id) {
-        let get = shapeArr?.find((el) => el?.id == shape_id);
-        // console.log(get,"getttttt",shape_id,"shape_iddd");
-        if (!get) {
-          return res.status(400).json({
-            mesage: " Shape data not found",
-            statusCode: 400,
-            success: false,
-          });
-        } else if (get && get?.status != "active") {
-          return res.status(400).json({
-            status: "Shape is not active",
-            statusCode: 400,
-            success: false,
-          });
-        }
-      }
-      if (size_id) {
-        let get = sizeArr?.find((el) => el?.id == size_id);
-        if (!get) {
-          return res.status(400).json({
-            mesage: "Size_id data not found",
-            statusCode: 400,
-            success: false,
-          });
-        } else if (get && get?.status != "active") {
-          return res.status(400).json({
-            status: "Size is not active",
-            statusCode: 400,
-            success: false,
-          });
-        }
-      }
-      if (material_id) {
-        let get = materialArr?.find((el) => el?.id == material_id);
-        if (!get) {
-          return res.status(400).json({
-            mesage: "Material_id data not found",
-            statusCode: 400,
-            success: false,
-          });
-        } else if (get && get?.status != "active") {
-          return res.status(400).json({
-            status: "Material is not active",
-            statusCode: 400,
-            success: false,
-          });
-        }
-      }
+
+      //by avinash
+      // if (shape_id) {
+      //   let get = shapeArr?.find((el) => el?.id == shape_id);
+      //   // console.log(get,"getttttt",shape_id,"shape_iddd");
+      //   if (!get) {
+      //     return res.status(400).json({
+      //       mesage: " Shape data not found",
+      //       statusCode: 400,
+      //       success: false,
+      //     });
+      //   } else if (get && get?.status != "active") {
+      //     return res.status(400).json({
+      //       status: "Shape is not active",
+      //       statusCode: 400,
+      //       success: false,
+      //     });
+      //   }
+      // }
+
+
+      // if (size_id) {
+      //   let get = sizeArr?.find((el) => el?.id == size_id);
+      //   if (!get) {
+      //     return res.status(400).json({
+      //       mesage: "Size_id data not found",
+      //       statusCode: 400,
+      //       success: false,
+      //     });
+      //   } else if (get && get?.status != "active") {
+      //     return res.status(400).json({
+      //       status: "Size is not active",
+      //       statusCode: 400,
+      //       success: false,
+      //     });
+      //   }
+      // }
+
+
+      // if (material_id) {
+      //   let get = materialArr?.find((el) => el?.id == material_id);
+      //   if (!get) {
+      //     return res.status(400).json({
+      //       mesage: "Material_id data not found",
+      //       statusCode: 400,
+      //       success: false,
+      //     });
+      //   } else if (get && get?.status != "active") {
+      //     return res.status(400).json({
+      //       status: "Material is not active",
+      //       statusCode: 400,
+      //       success: false,
+      //     });
+      //   }
+      // }
+
       let existCheck = await ProductModel.findOne({
         where: { id: product_id },
         attributes: ["title", "id", "thumbnail_img"],
