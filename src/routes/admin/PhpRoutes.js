@@ -3,7 +3,7 @@ import multer from 'multer';
 import AWS from 'aws-sdk';
 // import { s3 } from '../../config/aws.js'; // Adjust path as needed
 import { v4 as uuidv4 } from 'uuid'; // For generating unique file names
-//
+import path from 'path';
 
 const s3 = new AWS.S3({
     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
@@ -33,7 +33,8 @@ PhpRoutes.post(
         try {
             // Get the uploaded file details
             const file = req.file;
-            const fileName = `${uuidv4()}-${file.originalname}`;
+            //const fileName = `luxyara/uploadcards/${uuidv4()}-${file.originalname}`;
+            const fileName = `luxyara/uploadcards/${uuidv4()}-${Date.now()}${path.extname(file.originalname)}`;
             const params = {
                 Bucket: process.env.S3_BUCKET_NAME, // Your bucket name
                 Key: fileName,
@@ -51,7 +52,7 @@ PhpRoutes.post(
                 message: "File uploaded successfully!",
                 fileUrl: data.Location
               });
-              
+
         } catch (error) {
             console.error('Error uploading file:', error);
             res.status(500).json({ message: 'Failed to upload file1',error:error });
