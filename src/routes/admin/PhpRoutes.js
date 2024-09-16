@@ -4,10 +4,6 @@ import AWS from 'aws-sdk';
 // import { s3 } from '../../config/aws.js'; // Adjust path as needed
 import { v4 as uuidv4 } from 'uuid'; // For generating unique file names
 
-// AWS_ACCESS_KEY_ID="AKIAVRUVUXHFXPCKVFE5"
-// AWS_SECRET_ACCESS_KEY="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"
-// AWS_REGION="us-west-1"
-// S3_BUCKET_NAME="publicluxs3"
 
 const s3 = new AWS.S3({
     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
