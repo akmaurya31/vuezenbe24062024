@@ -64,6 +64,7 @@ import Router from "./src/routes/shippingRoutes.js";
 import logisticRouter from "./src/routes/logistic/logisticRoutes.js";
 import AdminFooterRoutes from "./src/routes/admin/FooterRoutes.js";
 import FooterRoutes from "./src/routes/user/FooterRoutes.js";
+import PhpRoutes from "./src/routes/admin/PhpRoutes.js";
 
 // import orderRoutes from "./src/routes/user/orderRoutes.js";
 // import { createRequire } from "module";
@@ -125,10 +126,11 @@ app.use(
   })
 );
 app.get("/", async (req, res) => {
-  return res.status(200).send("Welcom to Luxyara");
+  return res.status(200).send("Welcom to Luxyara  http://localhost:2000/api/user/ /api/product");
 });
 
 //routes here like this => app.use('/user',userRoutes);
+app.use("/api/php", PhpRoutes);
 app.use("/api/user", UserRoutes);
 app.use("/api/product", ProductRoutes);
 app.use("/api/ui", UISectionRoutes);
