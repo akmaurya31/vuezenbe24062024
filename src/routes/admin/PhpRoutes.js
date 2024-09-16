@@ -46,7 +46,12 @@ PhpRoutes.post(
             const data = await s3.upload(params).promise();
             
             // Respond with the file URL
-            res.status(200).json({ fileUrl: data.Location });
+            res.status(200).json({
+                status: "success",
+                message: "File uploaded successfully!",
+                fileUrl: data.Location
+              });
+              
         } catch (error) {
             console.error('Error uploading file:', error);
             res.status(500).json({ message: 'Failed to upload file1',error:error });
