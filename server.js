@@ -130,6 +130,7 @@ app.get("/", async (req, res) => {
 });
 
 //routes here like this => app.use('/user',userRoutes);
+
 app.use("/api/php", PhpRoutes);
 app.use("/api/user", UserRoutes);
 app.use("/api/product", ProductRoutes);

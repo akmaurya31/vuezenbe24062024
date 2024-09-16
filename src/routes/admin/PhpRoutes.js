@@ -3,7 +3,7 @@ import multer from 'multer';
 import AWS from 'aws-sdk';
 // import { s3 } from '../../config/aws.js'; // Adjust path as needed
 import { v4 as uuidv4 } from 'uuid'; // For generating unique file names
-
+//
 
 const s3 = new AWS.S3({
     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
