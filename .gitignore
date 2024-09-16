@@ -1,5 +1,7 @@
 .env
 node_modules
 src/uploads
+
 prod.env.txt
+prod.env*
 local.env.txt
